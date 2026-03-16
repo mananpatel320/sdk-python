@@ -328,7 +328,7 @@ class MockPydanticParams:
     def __init__(self, **data):
         self._data = data
 
-    def model_dump(self):
+    def model_dump(self, by_alias=False):
         return self._data.copy()
 
     @classmethod
@@ -507,7 +507,7 @@ class TestMCPInstrumentation:
             def __init__(self, **data):
                 self._data = data
 
-            def model_dump(self):
+            def model_dump(self, by_alias=False):
                 return self._data.copy()
 
             def model_validate(self, data):
